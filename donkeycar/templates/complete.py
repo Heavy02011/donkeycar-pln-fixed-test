@@ -138,7 +138,8 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
             outputs = ['cam/image_array', 'pos/pos_x', 'pos/pos_y', 'pos/pos_z', 'pos/speed', 'pos/cte']
         else:
             outputs = ['cam/image_array']
-
+        if cfg.CONTROLLER_TYPE == "MM1":
+             from donkeycar.parts.robohat import RoboHATController            
         V.add(cam, inputs=inputs, outputs=outputs, threaded=threaded)
 
     if use_joystick or cfg.USE_JOYSTICK_AS_DEFAULT:
