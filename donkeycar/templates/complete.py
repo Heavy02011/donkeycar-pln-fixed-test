@@ -144,9 +144,6 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
     if use_joystick or cfg.USE_JOYSTICK_AS_DEFAULT:
         #modify max_throttle closer to 1.0 to have more power
         #modify steering_scale lower than 1.0 to have less responsive steering
-        if cfg.HAVE_ROBOHAT:
-            from donkeycar.parts.robohat import RoboHATController
-
             ctr = RoboHATController(cfg)
         elif "custom" == cfg.CONTROLLER_TYPE:
             #
